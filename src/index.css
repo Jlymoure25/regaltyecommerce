@@ -1,0 +1,462 @@
+/* Regalty Premium Luxury Website Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #1e3a8a 0%, #6b7280 30%, #374151 60%, #1f2937 100%);
+  min-height: 100vh;
+  color: #1f2937;
+}
+
+/* Regalty Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+  border-radius: 10px;
+  border: 2px solid #f8fafc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #3730a3 0%, #312e81 100%);
+}
+
+/* Regalty Premium Animations */
+@keyframes regaltyFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes regaltySlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes regaltyGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 40px rgba(156, 163, 175, 0.3);
+  }
+}
+
+@keyframes loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Regalty Container Styles */
+.regalty-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  animation: regaltyFadeIn 0.8s ease-out;
+}
+
+/* Regalty Header Styles */
+.regalty-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #6b7280 40%, #374151 70%, #1f2937 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.regalty-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%), 
+              radial-gradient(circle at 80% 20%, rgba(156, 163, 175, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.regalty-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.regalty-logo {
+  color: white;
+  text-decoration: none;
+  font-size: 5rem;
+  font-weight: 900;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(45deg, #3b82f6 0%, #9ca3af 25%, #e5e7eb 50%, #374151 75%, #1f2937 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  display: block;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  animation: regaltyGlow 3s ease-in-out infinite;
+}
+
+.regalty-logo:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Regalty Product Grid */
+.regalty-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Regalty Product Card Hover Effects */
+.regalty-product-card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.regalty-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.6s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.regalty-product-card:hover::before {
+  left: 100%;
+}
+
+.regalty-product-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* Regalty Form Elements */
+.regalty-input {
+  font-family: 'Inter', sans-serif;
+  border: 2px solid rgba(30, 58, 138, 0.2);
+  border-radius: 15px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  color: #1f2937;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.regalty-input:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+  transform: translateY(-2px);
+}
+
+.regalty-select {
+  font-family: 'Inter', sans-serif;
+  border: 2px solid rgba(30, 58, 138, 0.2);
+  border-radius: 15px;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  color: #1f2937;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.regalty-select:focus {
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+}
+
+/* Regalty Button Styles */
+.regalty-btn-primary {
+  background: linear-gradient(45deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.regalty-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+
+.regalty-btn-primary:hover::before {
+  left: 100%;
+}
+
+.regalty-btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.6);
+}
+
+.regalty-btn-secondary {
+  background: linear-gradient(45deg, #1e3a8a 0%, #3730a3 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.regalty-btn-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 35px rgba(30, 58, 138, 0.5);
+}
+
+/* Regalty Typography */
+.regalty-heading-1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #1f2937;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.regalty-heading-2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 0.8rem;
+}
+
+.regalty-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.regalty-text-large {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* Regalty Premium Badges */
+.regalty-badge {
+  background: linear-gradient(45deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.regalty-badge-premium {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  color: #1f2937;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* Regalty Loading Animation */
+.regalty-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 25px;
+}
+
+/* Regalty Responsive Design */
+@media (max-width: 768px) {
+  .regalty-logo {
+    font-size: 3rem;
+  }
+  
+  .regalty-heading-1 {
+    font-size: 2rem;
+  }
+  
+  .regalty-products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .regalty-container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .regalty-logo {
+    font-size: 2.5rem;
+  }
+  
+  .regalty-heading-1 {
+    font-size: 1.8rem;
+  }
+  
+  .regalty-btn-primary,
+  .regalty-btn-secondary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Regalty Special Effects */
+.regalty-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.regalty-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Regalty Premium Gradients */
+.regalty-gradient-primary {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #312e81 100%);
+}
+
+.regalty-gradient-secondary {
+  background: linear-gradient(135deg, #374151 0%, #6b7280 50%, #9ca3af 100%);
+}
+
+.regalty-gradient-accent {
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+}
+
+/* Regalty Text Gradients */
+.regalty-text-gradient {
+  background: linear-gradient(45deg, #1e3a8a, #6b7280);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.regalty-text-gradient-premium {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Regalty Shadows */
+.regalty-shadow-sm {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.regalty-shadow-md {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.regalty-shadow-lg {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.regalty-shadow-xl {
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+/* Regalty Premium Effects */
+.regalty-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+.regalty-premium-border {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #1e3a8a, #6b7280, #1e3a8a) 1;
+  border-radius: 15px;
+}
